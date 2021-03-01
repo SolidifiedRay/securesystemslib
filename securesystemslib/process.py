@@ -216,7 +216,7 @@ def run_duplicate_streams(cmd, timeout=_default_timeout()):
         if (timeout is not None and
             time.time() > proc_start_time + timeout):
           proc.kill()
-          proc.wait()
+          proc.communicate()
           raise subprocess.TimeoutExpired(cmd, timeout)
 
         _duplicate_streams()
